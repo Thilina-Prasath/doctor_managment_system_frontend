@@ -30,9 +30,10 @@ const Home = () => {
             return;
         }
         try {
-            const res = await axios.get('http://localhost:5000/api/doctors', {
+            const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/doctors`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
+
             // The server correctly returns an empty array [] for new users
             setDoctors(res.data);
         } catch (err) {

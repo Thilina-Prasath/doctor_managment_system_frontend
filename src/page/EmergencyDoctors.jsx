@@ -68,7 +68,8 @@ const EmergencyDoctor = () => {
                     'Content-Type': 'application/json'
                 } 
             };
-            const { data } = await axios.get('http://localhost:5000/api/emergencydoctors', config);
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/emergencydoctors`,config);
+
             setDoctors(data);
         } catch (error) {
             console.error("Failed to fetch doctors:", error);
