@@ -11,12 +11,15 @@ import Home from './page/Home';
 function App() {
     return (
         <Router>
-            {/* <div className="container">  <-- REMOVE THIS */}
+ {/* <div className="container">  <-- REMOVE THIS */}
                 <Routes>
                     <Route path="/register" element={<Register />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/" element={<Home />} />
                     <Route path="/emergency-doctors" element={<EmergencyDoctor />} />
+                    <Route path="/" element={<Navigate to="/login" replace />} />
+                    <Route path="*" element={<Navigate to="/login" replace />} />
+
 NT
                 </Routes>
             {/* </div> <-- AND THIS */}
