@@ -4,12 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Lock, User, Eye, EyeOff, ArrowRight, Sparkles, UserPlus } from 'lucide-react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
-// Define the API URL based on the environment
-// Vite (and other bundlers) will set process.env.NODE_ENV to 'production' for builds.
-// This avoids the 'import.meta' syntax error.
-const PROD_API_URL = 'https://doctor-managment-system-backend-2.onrender.com';
-const DEV_API_URL = 'http://localhost:5000';
-const API_URL = process.env.NODE_ENV === 'production' ? PROD_API_URL : DEV_API_URL;
+
 
 const Register = () => {
     const [username, setUsername] = useState('');
@@ -37,7 +32,7 @@ const Register = () => {
         setError('');
         try {
             // Use the API_URL variable
-            const { data } = await axios.post(`${API_URL}/api/users/register`, { username, email, password });
+            const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/users/register`, { username, email, password });
             const token = data.token;
             if (token) {
                 localStorage.setItem('auth-token', token);

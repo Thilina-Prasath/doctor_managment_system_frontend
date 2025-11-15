@@ -65,8 +65,8 @@ const Home = () => {
                 workplace, 
                 consultant 
             };
-            await axios.post('http://localhost:5000/api/doctors', doctorData, {
-                headers: { 
+            await axios.post(`${import.meta.env.VITE_API_URL}/api/doctors`, doctorData, {
+            headers: { 
                     'Content-Type': 'application/json', 
                     Authorization: `Bearer ${token}` 
                 },
