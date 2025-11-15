@@ -11,12 +11,13 @@ function App() {
             <Routes>
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/" element={<Home />} />
+                <Route path="/home" element={<Home />} />  {/* Changed from "/" to "/home" */}
                 <Route path="/emergency-doctors" element={<EmergencyDoctor />} />
+                <Route path="/" element={<Navigate to="/login" replace />} />  {/* Redirect root to login */}
                 <Route path="*" element={<Navigate to="/login" replace />} />
             </Routes>
         </Router>
     );
 }
-
+ 
 export default App;
