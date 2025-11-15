@@ -110,7 +110,7 @@ const EmergencyDoctor = () => {
         };
 
         try {
-            const apiEndpoint = 'http://localhost:5000/api/emergencydoctors';
+            const apiEndpoint = `${import.meta.env.VITE_API_URL}/api/emergencydoctors`;
             if (editingDoctor) {
                 await axios.put(`${apiEndpoint}/${editingDoctor._id}`, form, config);
                 setSuccess('Doctor updated successfully!');
@@ -155,7 +155,7 @@ const EmergencyDoctor = () => {
                         'Content-Type': 'application/json'
                     } 
                 };
-                await axios.delete(`http://localhost:5000/api/emergencydoctors/${id}`, config);
+                await axios.delete(`${import.meta.env.VITE_API_URL}/api/emergencydoctors/${id}`, config);
                 setSuccess('Doctor deleted successfully!');
                 fetchDoctors();
                 setTimeout(() => setSuccess(''), 3000);
