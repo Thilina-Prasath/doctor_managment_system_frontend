@@ -22,7 +22,7 @@ const Login = () => {
             if (token) {
                 localStorage.setItem('auth-token', token);
                 localStorage.setItem('userInfo', JSON.stringify(response.data));
-                navigate('/');
+                navigate('/home');
             } else {
                 setError('Login failed: No token received.');
             }
@@ -69,7 +69,7 @@ const Login = () => {
                                 transition-all duration-700">
 
                     {/* Header Section */}
-                    <div className="p-6 text-center border-b border-white/20 dark:border-white/10">
+                    <div className="p-3 text-center border-b border-white/20 dark:border-white/10">
                         <motion.div
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
@@ -84,7 +84,7 @@ const Login = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3 }}
-                            className="text-3xl font-bold text-gray-900 dark:text-white mb-1 flex items-center justify-center gap-2"
+                            className="text-3xl font-bold text-gray-900 dark:text-white flex items-center justify-center "
                         >
                             Welcome Back
                             <Sparkles className="text-yellow-400 dark:text-yellow-300" size={22} />
@@ -159,7 +159,6 @@ const Login = () => {
                                 </button>
                             </div>
 
-
                             {/* Sign In Button */}
                             <motion.button
                                 whileHover={{ scale: 1.03 }}
@@ -190,19 +189,51 @@ const Login = () => {
 
                             {/* Sign Up Link */}
                             <p className="text-center text-gray-700 dark:text-gray-300 text-sm">
-                                Don’t have an account?{' '}
-                                <a href="/register" className="text-indigo-600 dark:text-indigo-300 hover:text-indigo-800 dark:hover:text-indigo-400 font-medium transition">
+                                Don't have an account?{' '}
+                                <a href="/register" className="text-indigo-600 dark:text-indigo-300 hover:text-indigo-800 dark:hover:text-indigo-400 font-medium transition ">
                                     Sign up
                                 </a>
                             </p>
                         </form>
+
+                        {/* Beautiful Footer */}
+                        <motion.div 
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.5 }}
+                            className="mt-8 pt-6 border-t border-white/30 dark:border-white/10"
+                        >
+                            <p className="text-center text-gray-600 dark:text-gray-300 text-xs flex items-center justify-center gap-1">
+                                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
+                                </svg>
+                                Secure login • End-to-end encrypted
+                            </p>
+                            
+                            <div className="text-center space-y-1">
+                                <p className="text-xs text-gray-500 dark:text-gray-400">
+                                    © 2025 All rights reserved
+                                </p>
+                                <a 
+                                    href="https://www.linkedin.com/in/prasath-thilina-747663355" 
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 text-sm text-gray-700 dark:text-gray-200 transition-colors group"
+                                >
+                                    <span className="text-xs"> Developed by</span>
+                                    <span className="font-bold text-1xl bg-white bg-clip-text text-transparent ">
+                                        Prasath Thilina
+                                    </span>
+                                    <svg className="w-4 h-4 text-indigo-600 dark:text-indigo-400 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                                        <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </motion.div>
+
                     </div>
                 </div>
-
-                {/* Footer Text */}
-                <p className="text-center text-gray-600 dark:text-gray-400 text-xs mt-6">
-                    © 2025 — Secure login powered by encryption
-                </p>
             </motion.div>
         </div>
     );
