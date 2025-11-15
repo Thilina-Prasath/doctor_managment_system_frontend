@@ -159,16 +159,6 @@ const Login = () => {
                                 </button>
                             </div>
 
-                            {/* Remember Me */}
-                            <div className="flex items-center justify-between text-sm">
-                                <label className="flex items-center gap-2 cursor-pointer">
-                                    <input type="checkbox" className="accent-indigo-500 w-4 h-4" />
-                                    <span className="text-gray-700 dark:text-gray-300">Remember me</span>
-                                </label>
-                                <a href="#" className="text-indigo-600 dark:text-indigo-300 hover:text-indigo-800 dark:hover:text-indigo-400 transition">
-                                    Forgot password?
-                                </a>
-                            </div>
 
                             {/* Sign In Button */}
                             <motion.button
